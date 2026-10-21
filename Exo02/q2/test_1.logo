@@ -1,0 +1,6 @@
+Efface ;
+Avance 150 ; Gauche 90 ; Avance 200; Dessine ;
+Def taille 100 ;
+Repete 4 [Avance :taille; Droite 90] ;
+Deplace ; Avance :taille ; Droite 90 ; Dessine ;
+Repete 3 [Avance :taille; Gauche 120] .

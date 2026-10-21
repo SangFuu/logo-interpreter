@@ -1,0 +1,5 @@
+Efface ;
+Avance 200 ; Gauche 90 ; Avance 220; Dessine ;
+Def cotes 10 ;
+Si (:cotes > 2) Alors Repete :cotes [Avance 60; Droite (360 / :cotes)]
+Sinon Avance 60 FinSi .

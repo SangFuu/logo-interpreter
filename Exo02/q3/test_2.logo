@@ -1,0 +1,4 @@
+Efface ;
+Avance 200 ; Gauche 90 ; Avance 220; Dessine ;
+Def i 1 ;
+Repete 100 [Avance (3 * :i); Gauche 91; Def i (:i + 1)] .

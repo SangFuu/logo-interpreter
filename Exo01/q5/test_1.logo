@@ -1,0 +1,5 @@
+Efface ;
+Avance 200 ; Gauche 90 ; Avance 100; Dessine ;
+Avance 100 ; Gauche 90; Avance 100; Gauche 90;
+Avance 100; Gauche 90; Avance 100; Gauche 90 .
+

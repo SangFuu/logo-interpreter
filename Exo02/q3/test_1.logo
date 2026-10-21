@@ -1,0 +1,5 @@
+Efface ;
+Avance 200 ; Gauche 90 ; Avance 200; Dessine ;
+Def taille 150 ; Def nbfois 24 ;
+Repete :nbfois [Droite (360 / :nbfois) ;
+Repete 3 [Avance :taille; Gauche 120]] .

@@ -1,0 +1,6 @@
+-- carre sans boucle
+Efface ;-- on place la tortue au bon endroit
+Avance 200 ; Gauche 90 ; Avance 100; Dessine ;-- on avance et on tourne a angle droit quatre fois de suite
+Avance 100 ; Gauche 90; Avance 100; Gauche 90;
+Avance 100; Gauche 90; Avance 100; Gauche 90 .
+
