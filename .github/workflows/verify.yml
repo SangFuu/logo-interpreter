@@ -8,10 +8,12 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Installer OCaml
-        run: sudo apt-get update && sudo apt-get install -y ocaml-nox make
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: "4.14"
       - name: Compiler et tester les exercices
-        run: python3 tests/check.py
+        run: opam exec -- python3 tests/check.py
