@@ -8,3 +8,8 @@ repl_logo
 .DS_Store
 __MACOSX/
 _build/
+logo_lexer.ml
+logo_parser.ml
+logo_parser.mli
+_graphic/
+repl_logo_graphic

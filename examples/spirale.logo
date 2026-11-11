@@ -1,0 +1,6 @@
+Deplace ; Avance 300 ; Gauche 90 ; Avance 225 ; Droite 90 ; Dessine ;
+Def d 5 ;
+Repete 60 [
+  Avance :d ; Gauche 91 ;
+  Si (:d < 200) Alors Def d (:d + 6) Sinon Def d 200 FinSi
+] .

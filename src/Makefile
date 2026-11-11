@@ -76,10 +76,30 @@ $(OBJS) : $(SOURCES)
 $(EXEC).cmo:  $(SOURCES) $(LEXER).mll $(PARSER).mly $(EXEC).ml
 	ocamlc $(LIBS) -c $(EXEC).ml
 
-clean :
+clean : clean-graphic
 	rm -f *.cm[io]
 	rm -f $(LEXER).ml
 	rm -f $(PARSER).ml
 	rm -f $(PARSER).mli
 	rm -f $(EXEC)
 
+
+#################### Graphical version ###############################
+#
+# `make graphic` builds repl_logo_graphic with the turtle_graphic.ml
+# module provided with the assignment. It needs the OCaml `graphics`
+# library (opam install graphics, or libgraphics-ocaml-dev on Debian).
+
+GRAPHICS_DIR ?= $(shell ocamlfind query graphics 2>/dev/null || echo +graphics)
+
+graphic :
+	rm -rf _graphic && mkdir _graphic
+	cp env.ml geometry.ml turtle.ml turtle_graphic.ml logo_ast.ml repl_logo.ml $(LEXER).mll $(PARSER).mly _graphic/
+	sed -i.bak -e 's/^open Turtle$$/open Turtle\nopen Turtle_graphic/' _graphic/logo_ast.ml _graphic/repl_logo.ml
+	cd _graphic && ocamllex -q $(LEXER).mll && ocamlyacc $(PARSER).mly && \
+	  ocamlc -I $(GRAPHICS_DIR) -o ../repl_logo_graphic graphics.cma \
+	    env.ml geometry.ml turtle.ml turtle_graphic.ml logo_ast.ml \
+	    $(PARSER).mli $(PARSER).ml $(LEXER).ml repl_logo.ml
+
+clean-graphic :
+	rm -rf _graphic repl_logo_graphic

@@ -1,0 +1,6 @@
+Deplace ; Avance 230 ; Gauche 90 ; Avance 40 ; Droite 90 ; Dessine ;
+Def n 3 ;
+Repete 6 [
+  Repete :n [Avance 70 ; Gauche (360 / :n)] ;
+  Def n (:n + 1)
+] .

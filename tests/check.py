@@ -31,7 +31,12 @@ for folder in folders:
     checks += 1
     print("OK", folder.relative_to(ROOT), flush=True)
 
-final = ROOT / "Exo03/q4"
+final = ROOT / "src"
+for example in sorted((ROOT / "examples").glob("*.logo")):
+    output = execute(final, example.read_text(encoding="utf-8"))
+    assert "Erreur" not in output and "analysé" in output, (example.name, output)
+    checks += 1
+
 for source, expected in (
     ("Def x (1 + 2).\n", "x = 3"),
     ("Def x 0; Repete 3 [Def x (:x + 1)].\n", "x = 3"),

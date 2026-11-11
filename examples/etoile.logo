@@ -1,0 +1,2 @@
+Deplace ; Avance 200 ; Gauche 90 ; Avance 290 ; Droite 90 ; Dessine ;
+Repete 5 [Avance 200 ; Droite 144] .
